@@ -1,0 +1,36 @@
+@import '../base/variable.scss';
+
+.character_container {
+  display: flex;
+  justify-content: space-evenly;
+
+  .img-wrapper {
+    width: 500px;
+    height: 500px;
+    border-radius: 10px;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .info-section {
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+
+    .info {
+      font-size: 2.5rem;
+      line-height: 5rem;
+      margin: 0px 10px;
+      border-bottom: 1px solid $black;
+      display: flex;
+      justify-content: space-between;
+
+      span {
+        color: $navyBlue;
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+@import '../base/variable.scss';
+
+.container {
+  max-width: 1400px;
+  width: 80%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  .card {
+    width: 300px;
+    background-color: $card-color;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    
+    .img-wrapper {
+      width: 300px;
+      height: 300px;
+      border-radius: 10px;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    .info {
+      font-size: 1.5rem;
+      line-height: 3rem;
+      margin: 0px 10px;
+      border-bottom: 1px solid $black;
+      display: flex;
+      justify-content: space-between;
+
+      span {
+        color: $navyBlue;
+      }
+    }
+  }
+}
