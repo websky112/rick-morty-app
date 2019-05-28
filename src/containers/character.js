@@ -3,14 +3,20 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
 
 import Character from '../components/character'
+import { toggleCharacter } from '../redux/actions'
 
 class CharacterContainer extends React.Component {
+  componentDidMount () {
+    const id = this.props.match.params.id
+    this.props.toggleCharacter(id)
+  }
+
   render () {
-    const { character } = this.props
+    const { character, history } = this.props
     return (
       <div>
         {
-          character !== undefined ? <Character data={character.data} /> : <div>No Data. Loading... </div>
+          character !== undefined ? <Character data={character.data} history={history}/> : <div>No Data. Loading... </div>
         }
       </div>
     )
@@ -18,7 +24,6 @@ class CharacterContainer extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log('state.character: ', state.character)
   if (state.character !== null) {
     return { character: state.character }
   } else {
@@ -27,7 +32,9 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return {}
+  return {
+    toggleCharacter: id => dispatch(toggleCharacter(id))
+  }
 }
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CharacterContainer))

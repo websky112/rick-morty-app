@@ -1,7 +1,8 @@
+/* eslint-disable no-unused-vars */
 import React from 'react'
 import { createStore, applyMiddleware } from 'redux'
 import createSagaMiddleWare from 'redux-saga'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
 import { Provider } from 'react-redux'
 
 import ListContainer from './containers/list'
@@ -18,8 +19,11 @@ function App () {
   return (
     <Provider store={store}>
       <Router>
-        <Route exact path="/characters" component={ListContainer} />
-        <Route exact path="/characters/:id" component={CharacterContainer} />
+        <Switch>
+          <Route exact path="/characters" component={ListContainer} />
+          <Route exact path="/characters/:id" component={CharacterContainer} />
+          <Redirect to="/characters" />
+        </Switch>
       </Router>
     </Provider>
   )

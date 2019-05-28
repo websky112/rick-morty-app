@@ -19,7 +19,6 @@ import {
 } from './api'
 
 function * loadCharacters () {
-  console.log('redux called')
   try {
     const characters = yield call(sendLoadRequest)
     yield put({ type: LOAD_CHARACTERS_SUCCESS, characters })
@@ -29,7 +28,6 @@ function * loadCharacters () {
 }
 
 function * toggleCharacter (action) {
-  console.log('-id=: ', action.id)
   try {
     const character = yield call(sendToggleRequest, action.id)
     yield put({ type: TOGGLE_CHARACTER_SUCCESS, character })

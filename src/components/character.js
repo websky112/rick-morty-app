@@ -2,12 +2,11 @@ import React from 'react'
 
 class Character extends React.Component {
   onBack () {
-    this.props.history.push('./characters')
+    this.props.history.push('/characters')
   }
 
   render () {
     const { data } = this.props
-    console.log('data: ', data)
 
     return (
       <div className="character_container">

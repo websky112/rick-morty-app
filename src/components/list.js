@@ -2,14 +2,11 @@ import React from 'react'
 
 class List extends React.Component {
   onClicked (id) {
-    console.log('id: ', id)
-    this.props.toggleCharacter(id)
     this.props.history.push(`characters/${id}`)
   }
 
   render () {
     const { data } = this.props
-    console.log('data: ', data)
 
     return (
       <div className="container">

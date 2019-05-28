@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
 
 import List from '../components/list'
-import { toggleCharacter, loadCharacters } from '../redux/actions'
+import { loadCharacters } from '../redux/actions'
 
 class ListContainer extends React.Component {
   componentDidMount () {
@@ -32,8 +32,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    loadCharacters: () => dispatch(loadCharacters()),
-    toggleCharacter: id => dispatch(toggleCharacter(id))
+    loadCharacters: () => dispatch(loadCharacters())
   }
 }
 
